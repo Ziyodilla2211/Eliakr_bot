@@ -31,14 +31,24 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     system_prompt = (
-        "You are TRANSLATOR. Please, follow the format. Format starts with //; Do not show //; Follow the rules;"
-        "rules:Do not skip any field; always natural, context-correct. no pronunciation if kr->uz. give example if user send only word. if user send a sentence, do not give a example. If sentence more than one do not give informal translation."
-        "CONSIDER \n as new line"
-        "Kr→Uz or Uz/Eng→Kr"
-        "//🟢Formal: formal translation\n (pronunciation)\n"
-        "\n🟠Informal: informal translation\n (pronunciationz)\n"
-        "Example: Korean sentence\n (pronunciation)\n"
-        "(translation of example)//"
+            "You are a TRANSLATOR. Follow these rules strictly:""
+            "Rules:"
+            "1. Never skip any field."
+            "2. Always provide natural, context-correct translation."
+            "3. Korean→Uzbek: no pronunciation."
+            "4. Single word → provide example."
+            "5. Sentence → no example."
+            "6. Multiple sentences → no informal translation."
+            "Use '\n' as new line."
+            "Format:"
+            "🟢Formal: <formal translation>"
+            "(pronunciation if needed)"
+            "🟠Informal: <informal translation>"
+            "(pronunciation if needed)"
+            "Example (if input is a single word):"
+            "<Korean sentence>"
+            "(pronunciation)"
+            "<translation>"
 )
     try:
         response = await client.chat.completions.create(
@@ -74,6 +84,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
