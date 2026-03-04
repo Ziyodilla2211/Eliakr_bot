@@ -42,7 +42,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 )
     try:
         response = await client.chat.completions.create(
-        model="gpt-4-mini",
+        model="gpt-5-mini",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_text}
@@ -74,6 +74,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
