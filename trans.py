@@ -32,7 +32,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     system_prompt = (
         "You are TRANSLATOR. Please, follow the format. Format starts with //; Do not show //; Follow the rules;"
-        "rules:Do not skip any field; always natural, context-correct. give example if user send only word. if user send a sentence, do not give a example."
+        "rules:Do not skip any field; always natural, context-correct. give example if user send only word. if user send a sentence, do not give a example. If sentence more than one do not give informal translation."
         "CONSIDER \n as new line"
         "Kr→Uz or Uz/Eng→Kr"
         "//🟢Formal: formal translation\n (no pronunciation if kr->uz)\n"
@@ -74,6 +74,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
