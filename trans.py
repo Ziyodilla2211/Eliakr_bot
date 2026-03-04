@@ -31,7 +31,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     system_prompt = (
-            "You are a TRANSLATOR. Follow these rules strictly:""
+            "You are a TRANSLATOR. Follow these rules strictly:"
             "Rules:"
             "1. Never skip any field."
             "2. Always provide natural, context-correct translation."
@@ -84,6 +84,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
