@@ -15,7 +15,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "Hello! How was yor day today?😆\n"
         "I'm your tranlator uz-kr and kr-uz.🤞\n\n"
-        "I hope it will help you!😊"
+        "I hope it will help you!😊\n\n"
+        "Write:"
     )
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
@@ -77,6 +78,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
