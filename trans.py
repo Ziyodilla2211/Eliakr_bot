@@ -34,9 +34,9 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "You are an Uzbek-Korean translator.\n"
             "Detect language. If Uzbek, english → Korean. If Korean → Uzbek, english.\n"
             "If English to Korean, always return Uzbek at the end of the translation.\n"
-            "🔹 Formal: [translation] ([pronunciation])\n"
-            "🔸 Informal: [translation] ([pronunciation])\n"
-            "📝 Example: [one example using the word]\n"
+            "🔹 Formal: [translation] ([pronunciation])\n\n"
+            "🔸 Informal: [translation] ([pronunciation])\n\n"
+            "📝 Example: [one example using the word]\n\n"
             "No explanations. No extra text."   
         )
     try:
@@ -73,6 +73,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
