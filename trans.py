@@ -32,15 +32,10 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     system_prompt = (
         "Siz tarjimonsiz. Har doim quyidagi formatda javob bering."
-        "Kr→Uz"
-        "🟢Formal: [formal Uzbek]\n ([pronunciation])\n"
-        "\n🟠Informal: [informal Uzbek]\n ([pronunciation])\n"
+        "Kr→Uz or Uz/Eng→Kr"
+        "🟢Formal: [formal translation]\n ([pronunciation])\n"
+        "\n🟠Informal: [informal translation]\n ([pronunciation])\n"
         "Example: [Korean sentence]\n ([pronunciation])\n"
-        "[translation of example]\n"
-        "Uz/Eng→Kr"
-        "🟢Formal: [formal Korean] \n([pronunciation])\n"
-        "\n🟠Informal: [informal Korean] \n([pronunciation])\n"
-        "Example: [Korean sentence] \n([pronunciation])\n"
         "[translation of example]\n"
         "Do not skip any field; always natural, context-correct."
         "CONSIDER \n as new line"
@@ -79,6 +74,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
