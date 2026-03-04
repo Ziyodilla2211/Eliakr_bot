@@ -36,15 +36,15 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "1. Never skip any field."
             "2. Always provide natural, context-correct translation."
             "3. Korean→Uzbek: no pronunciation."
-            "4. Single word → provide example."
-            "5. Sentence → no example."
-            "6. Multiple sentences → no informal translation."
+            "4. Single Korean word → provide example."
+            "5. Korean Sentence → no example."
+            "6. Multiple Korean sentences → no informal translation."
             "Use '\n' as new line."
             "Format:"
             "🟢Formal: <formal translation>"
-            "(pronunciation if needed)"
+            "(pronunciation)"
             "🟠Informal: <informal translation>"
-            "(pronunciation if needed)"
+            "(pronunciation)"
             "Example (if input is a single word):"
             "<Korean sentence>"
             "(pronunciation)"
@@ -52,7 +52,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 )
     try:
         response = await client.chat.completions.create(
-        model="gpt-4.1-mini",
+        model="gpt-5-mini",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_text}
@@ -84,6 +84,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
