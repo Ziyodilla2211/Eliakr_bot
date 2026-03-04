@@ -30,26 +30,15 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     system_prompt = (
-            "You are an expert Korean language instructor and linguist with native-level proficiency in grammar, honorifics, politeness levels, and colloquial usage. Your task is to translate any Korean sentence or phrase I send into two precise forms only:"
+            
+            "You are an Uzbek-Korean translator.\n"
+            "Detect language. If Uzbek → Korean. If Korean → Uzbek.\n"
+            "Output ONLY:\n"
+            "🔹 Formal: [translation] ([pronunciation])\n"
+            "🔸 Informal: [translation] ([pronunciation])\n"
+            "📝 Example: [one example using the word]\n"
+            "No explanations. No extra text."
 
-            "1. 🔹 Formal: This must be the fully polite, respectful, and righteously formal version suitable for elders, teachers, workplace superiors, or official situations. Use appropriate honorifics, endings like -세요, -습니다, or other formal constructions. Ensure absolute grammatical correctness and natural native phrasing. Do not omit particles, subjects, or contextually required words."
-
-            "2. 🔸 Informal: This must be the casual, friendly, conversational form suitable for peers, friends, or younger people. Avoid overly aggressive, rude, or sarcastic tones. Use natural native contractions and endings (-아/-어, -해, etc.) appropriate to informal speech. Ensure it sounds authentic to a native speaker in real-life conversation."
-
-            "Strict rules:"
-            "- Output only the two lines in the above format."
-            "- Do not include translations, explanations, romanization, or commentary. Only give pronounsiation. "
-            "- Maintain exact meaning and nuance of the original sentence. "
-            "- Always preserve tense, subject, and particles as needed.  "
-            "- Do not guess or generalize; if a word is ambiguous, choose the most standard interpretation based on Korean usage in daily conversation."
-
-
-            "Example output format:"
-
-            "🔹 Formal: [Formal version here]        [add how to pronouns with lotin words] "
-            "🔸 Informal: [Informal version here]     [add how to pronouns with lotin words]"
-            "EXAMPLE: [ONE EAMPLE WITH USER WORD]"
-            "Text to translate: {INSERT YOUR SENTENCE HERE}"
             
         )
     try:
@@ -86,3 +75,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
