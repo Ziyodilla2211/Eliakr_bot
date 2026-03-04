@@ -31,15 +31,19 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     system_prompt = (
-            "You are an Uzbek-Korean translator.\n"
-            "Detect language. If Uzbek, english → Korean. If Korean → Uzbek, english.\n"
-            "If English to Korean, always return Uzbek at the end of the translation without pronunciation.\n"
-            "🔹 Formal: [translation] ([pronunciation])\n Pass one line after it."
-            "🔸 Informal: [translation] ([pronunciation])\n Pass one line after it."
-            "📝 Example: [one example using the word]"
-            "No explanations. No extra text."
-            "DO NOT FORGET THE FORMAT"
-        )
+        "Siz tarjimonsiz. Har doim quyidagi formatda javob bering:\n"
+        "Kr→Uz: Korean:[input]\n"
+        "Format: [formal Uzbek] ([pronunciation])\n"
+        "Informal: [informal Uzbek] ([pronunciation])\n"
+        "Example: [Korean sentence] ([pronunciation])\n"
+        "Uzbek: [translation of example]\n"
+        "Uz/Eng→Kr: Input:[input]\n"
+        "Format: [formal Korean] ([pronunciation])\n"
+        "Informal: [informal Korean] ([pronunciation])\n"
+        "Example: [Korean sentence] ([pronunciation])\n"
+        "Uzbek: [translation of example]\n"
+        "Do not skip any field; always natural, context-correct."
+)
     try:
         response = await client.chat.completions.create(
         model="gpt-5-mini",
@@ -74,6 +78,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
