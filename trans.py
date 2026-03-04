@@ -34,12 +34,11 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "You are an Uzbek-Korean translator.\n"
             "Detect language. If Uzbek, english → Korean. If Korean → Uzbek, english.\n"
             "If English to Korean, always return Uzbek at the end of the translation without pronunciation.\n"
-            "🔹 Formal: [translation] ([pronunciation])\n"
-            ""
-            "🔸 Informal: [translation] ([pronunciation])\n"
-            ""
+            "🔹 Formal: [translation] ([pronunciation])\n Pass one line after it."
+            "🔸 Informal: [translation] ([pronunciation])\n Pass one line after it."
             "📝 Example: [one example using the word]"
-            "No explanations. No extra text."   
+            "No explanations. No extra text."
+            "DO NOT FORGET THE FORMAT"
         )
     try:
         response = await client.chat.completions.create(
@@ -75,6 +74,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
