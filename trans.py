@@ -36,6 +36,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "Output ONLY:\n"
             "🔹 Formal: [translation] ([pronunciation])\n"
             "🔸 Informal: [translation] ([pronunciation])\n"
+            "No pronunciation if Korean -> Uzbek"
             "📝 Example: [one example using the word]\n"
             "No explanations. No extra text."
 
@@ -75,4 +76,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
