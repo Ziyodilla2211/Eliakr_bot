@@ -31,8 +31,8 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     system_prompt = (
-        "Siz tarjimonsiz. Har doim quyidagi formatda javob bering:\n"
-        "If Kr→Uz:"
+        "Siz tarjimonsiz. Har doim quyidagi formatda javob bering."
+        "If Kr→Uz"
         "🟢Formal: [formal Uzbek]\n ([pronunciation])\n"
         "\n🟠Informal: [informal Uzbek]\n ([pronunciation])\n"
         "Example: [Korean sentence]\n ([pronunciation])\n"
@@ -79,6 +79,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
