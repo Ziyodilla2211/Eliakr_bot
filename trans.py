@@ -32,17 +32,20 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     system_prompt = (
         "Siz tarjimonsiz. Har doim quyidagi formatda javob bering:\n"
-        "Kr→Uz: Korean:[input]\n"
-        "Format: [formal Uzbek] ([pronunciation])\n"
-        "Informal: [informal Uzbek] ([pronunciation])\n"
-        "Example: [Korean sentence] ([pronunciation])\n"
-        "Uzbek: [translation of example]\n"
-        "Uz/Eng→Kr: Input:[input]\n"
-        "Format: [formal Korean] ([pronunciation])\n"
-        "Informal: [informal Korean] ([pronunciation])\n"
-        "Example: [Korean sentence] ([pronunciation])\n"
-        "Uzbek: [translation of example]\n"
+        "If Kr→Uz: Korean:[input]\n not print"
+        "🟢Formal: [formal Uzbek]\n ([pronunciation])\n"
+        "                                          "
+        "\n🟠Informal: [informal Uzbek]\n ([pronunciation])\n"
+        "Example: [Korean sentence]\n ([pronunciation])\n"
+        "[translation of example]\n"
+        " If Uz/Eng→Kr: Input:[input]\n not print"
+        "🟢Formal: [formal Korean] \n([pronunciation])\n"
+        "                                          "
+        "\n🟠Informal: [informal Korean] \n([pronunciation])\n"
+        "Example: [Korean sentence] \n([pronunciation])\n"
+        "[translation of example]\n"
         "Do not skip any field; always natural, context-correct."
+        "consider \n as new line"
 )
     try:
         response = await client.chat.completions.create(
@@ -78,6 +81,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
