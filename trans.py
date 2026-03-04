@@ -14,7 +14,7 @@ client = AsyncOpenAI(api_key=API_KEY)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "Hello! How was yor day today?😆\n"
-        "I'm your translator uz-kr and kr-uz or eng-kk.🤞\n\n"
+        "I'm your translator uz-kr and kr-uz or eng-kr.🤞\n\n"
         "I hope it will help you!😊\n\n"
         "Write:"
     )
@@ -75,6 +75,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
