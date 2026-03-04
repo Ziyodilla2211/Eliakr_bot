@@ -35,8 +35,8 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "rules:Do not skip any field; always natural, context-correct. give example if user send only word. if user send a sentence, do not give a example."
         "CONSIDER \n as new line"
         "Kr→Uz or Uz/Eng→Kr"
-        "//🟢Formal: formal translation\n (pronunciation)\n"
-        "\n🟠Informal: informal translation\n (pronunciation)\n"
+        "//🟢Formal: formal translation\n (no pronunciation if kr->uz)\n"
+        "\n🟠Informal: informal translation\n (no pronunciation if kr->uz)\n"
         "Example: Korean sentence\n (pronunciation)\n"
         "(translation of example)//"
 )
@@ -74,6 +74,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
