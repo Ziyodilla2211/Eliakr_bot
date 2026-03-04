@@ -36,9 +36,10 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "1. Never skip any field."
             "2. Always provide natural, context-correct translation."
             "3. Korean→Uzbek: no pronunciation."
-            "4. Single Korean word → provide example."
-            "5. Korean Sentence → no example."
-            "6. Multiple Korean sentences → no informal translation."
+            "4. If Korean->Uzbek: give user's input's pronunciation before Formal at line above."
+            "5. Single Korean word → provide example."
+            "6. Korean Sentence → no example."
+            "7. Multiple Korean sentences → no informal translation."
             "Use '\n' as new line."
             "Format:"
             "🟢Formal: <formal translation>"
@@ -84,6 +85,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
