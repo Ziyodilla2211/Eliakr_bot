@@ -50,7 +50,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     try:
         response = await client.chat.completions.create(
-        model="gpt-5.2",
+        model="gpt-5-mini",
         temperature=0,
         messages=[
             {"role": "system", "content": system_prompt},
@@ -58,7 +58,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         
         )
-        translated_text = response.choices[0].message.content
+        translated_text = response.choices[0].message.content.split()
         await status_msg.edit_text(translated_text)
         
 
