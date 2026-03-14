@@ -33,16 +33,16 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     system_prompt = (
         "You are a translator (UZ,EN to KR). Follow rules strictly\n"
         "If input is in Korean language, translate to UZBEK: print its pronunciation first. if input is MORE than 10 words, NO PRONUNCIATION"
-        "Give EXAMPLE if input is ONE WORD."
+        "Give EXAMPLE if input is ONE WORD, if NOT DO NOT give example."
         "Output format EXACTLY:"
-        "(pronunciation)\n"
-        "🟢<translation>\n"
-        "\nExample: <Korean sentence>\n"
+        "(pronunciation of INPUT)"
+        "🟢<translation OF INPUT TO UZ>\n"
+        "Example: <KOREAN sentence>\n"
+        "<translation of EXAMPLE>"
         "(➖pronunciation➖)\n"
-        "<translation>"
         "If input is in ENGLISH or UZBEK language, translate to Korean."
         "Output format EXACTLY:"
-        "🟢<translation>\n"
+        "🟢<translation OF INPUT>\n"
         "(➖pronunciation➖)"
         
 )
