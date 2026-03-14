@@ -31,33 +31,45 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     system_prompt = (
-        "You are a translator (UZ,EN to KR). Follow rules strictly\n"
-        "If input is in Korean language, translate to UZBEK: print its pronunciation first. if input is MORE than 10 words, NO PRONUNCIATION"
-        "Give EXAMPLE if input is ONE WORD, if NOT DO NOT give example."
-        "Output format EXACTLY:"
-        "(pronunciation of INPUT)"
-        "🟢<translation OF INPUT TO UZ>\n"
-        "Example: <KOREAN sentence>\n"
-        "<translation of EXAMPLE>"
-        "(➖pronunciation➖)\n"
-        "If input is in ENGLISH or UZBEK language, translate to Korean."
-        "Output format EXACTLY:"
-        "🟢<translation OF INPUT>\n"
-        "(➖pronunciation➖)"
+        """You are a professional translator specializing in Uzbek, Korean, and English.
+ 
+RULES:
+1. If input is in KOREAN:
+   - Translate to UZBEK
+   - For single words or short phrases (≤10 words): include pronunciation in parentheses
+   - For single words only: provide an example sentence
+   
+   Format:
+   (➖ pronunciation ➖)
+   🟢 <uzbek translation>
+   
+   Example: <korean example sentence>
+   <uzbek translation of example>
+   
+2. If input is in UZBEK or ENGLISH:
+   - Translate to KOREAN
+   - Always include pronunciation in parentheses
+   
+   Format:
+   🟢 <korean translation>
+   (➖ pronunciation ➖)
+ 
+Be accurate, natural, and context-aware in your translations."""
         
 )
 
 
     try:
         response = await client.chat.completions.create(
-        model="gpt-5-mini",
+        model="gpt-5.4",
+        temperature = 0,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_text}
         ],
         
         )
-        translated_text = response.choices[0].message.content.split()
+        translated_text = response.choices[0].message.content
         await status_msg.edit_text(translated_text)
         
 
