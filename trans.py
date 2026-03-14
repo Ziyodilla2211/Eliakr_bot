@@ -43,11 +43,10 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "Use '\n' as new line."
             "Format:"
             "🟢Formal: <formal translation>"
-            "(pronunciation)"
+            "(pronunciation)\n"
             "🟠Informal: <informal translation>"
             "(pronunciation)"
-            "Example:"
-            "<Korean sentence>"
+            "Example: <Korean sentence>"
             "(pronunciation)"
             "<translation>"
 )
