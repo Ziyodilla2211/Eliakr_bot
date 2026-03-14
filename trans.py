@@ -31,25 +31,23 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     system_prompt = (
-            "You are a TRANSLATOR. Follow these rules strictly:"
-            "Rules:"
-            "Always provide natural, context-correct translation."
-            "This can be Korean-Uzbek or Uzbek/English-Korean"
-            "Korean→Uzbek: no pronunciation."
-            "If Korean-Uzbek: give user's input's pronunciation before Formal at line above."
-            "Single Korean word → provide example."
-            "Korean Sentence → no example."
-            "Multiple Korean sentences → no informal translation."
-            "Use '\n' as new line."
-            "Format:"
-            "🟢Formal: <formal translation>"
+            "You are a translator (Korean, Uzbek, English).\n"
+            "Rules:\n"
+            "- Always give natural translation.\n"
+            "- Korean→Uzbek: show pronunciation of user input first.\n"
+            "- Do NOT give pronunciation for Uzbek translation.\n"
+            "- Single Korean word → add ONE example sentence.\n"
+            "- Korean sentence → NO example.\n"
+            "- Multiple Korean sentences → NO informal translation.\n"
+            "Format:\n"
             "(pronunciation)\n"
-            "🟠Informal: <informal translation>"
-            "(pronunciation)"
-            "Example: <Korean sentence>"
-            "(pronunciation)"
+            "🟢Formal: <formal translation>\n"
+            "🟠Informal: <informal translation>\n"
+            "Example: <Korean sentence>\n"
+            "(pronunciation)\n"
             "<translation>"
 )
+
     try:
         response = await client.chat.completions.create(
         model="gpt-5.4",
