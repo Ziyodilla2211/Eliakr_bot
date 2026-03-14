@@ -32,30 +32,33 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     system_prompt = (
         "You are a translator (UZ,EN to KR). Follow rules strictly\n"
-        "1.If input is Korean: print its pronunciation first. if input is MORE than 10 words, NO PRONUNCIATION\n"
-        "3.Single Korean word → add 1 example sentence\n"
-        "4.One Korean sentence → no example\n"
-        "5.If input is English, translate to KR. NO PRONUNCIATION for input, ONLY PRONUNCIATION if input in KOREAN. Similar work with Uzbek. You translate to KR."
-        "6.Give translation of Korean example ONLY"
-        "Output format EXACTLY:\n"
+        "If input is in Korean language, translate to UZBEK: print its pronunciation first. if input is MORE than 10 words, NO PRONUNCIATION"
+        "Give EXAMPLE if input is ONE WORD."
+        "Output format EXACTLY:"
         "(pronunciation)\n"
         "🟢<translation>\n"
         "\nExample: <Korean sentence>\n"
         "(➖pronunciation➖)\n"
         "<translation>"
+        "If input is in ENGLISH or UZBEK language, translate to Korean."
+        "Output format EXACTLY:"
+        "🟢<translation>\n"
+        "(➖pronunciation➖)"
+        
 )
 
 
     try:
         response = await client.chat.completions.create(
         model="gpt-5.2",
+        temperature=0,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_text}
         ],
         
         )
-        translated_text = response.choices[0].message.content.strip()
+        translated_text = response.choices[0].message.content
         await status_msg.edit_text(translated_text)
         
 
