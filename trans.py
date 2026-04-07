@@ -27,7 +27,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = update.message.text.strip()
 
-    status_msg = await update.message.reply_text("Translating with AI...")
+    status_msg = await update.message.reply_text("Translating...⏳")
 
     
     system_prompt = (
@@ -74,8 +74,8 @@ Be accurate, natural, and context-aware in your translations."""
         
 
     except Exception as e:
-        print(f"XATO TURI: {type(e).__name__}")
-        print(f"XATO: {e}")
+        print(f"ERROR TYPE: {type(e).__name__}")
+        print(f"ERROR: {e}")
         await status_msg.edit_text("Error! Please try again!😔")
 
 def main():
